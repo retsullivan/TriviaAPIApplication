@@ -1,0 +1,247 @@
+﻿
+html, body {
+    min-height: 100%;
+    background-color: rgb(48, 48, 54);
+}
+
+body {
+    position: relative;
+    background-color: rgb(48, 48, 54);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 30vh;
+    align-content: center;
+    justify-content: center;
+    padding: 2%;
+    background-color: rgb(45, 86, 210);
+}
+
+.jeparody-logo {
+    display:flex;
+    width: auto;
+    height:95%;
+
+}
+
+.yellow-band {
+    height: 2vh;
+    background-color: rgba(252, 215, 5,.7);
+}
+
+.my-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 60vh;
+    padding: 2vw;
+    margin: 0%;
+    background-color: rgb(48, 48, 54);
+}
+
+
+.btn.home-button {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 20vw;
+    width: 30vw;
+    font-size: 8vh;
+    font-weight: bolder;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    text-justify: auto;
+    padding: 2vh;
+    border-radius:1vh;
+    box-shadow: 0px 3px 1px 1px rgba(0, 0, 0,.1);
+    background-color: rgba(45, 86, 210,.9);
+
+}
+    .btn.home-button:hover {
+        color: rgb(252, 215, 5);
+        background-color: rgb(45, 86, 210);
+        box-shadow: 0px 5px 2px 1px rgba(0, 0, 0,.2);
+    }
+
+/*NavBar stuff*/
+
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(48, 48, 54);
+    margin: 0%;
+    width: 100%;
+    height: 10vh;
+    padding: 0px;
+    align-content: flex-end;
+    justify-content: center;
+    box-shadow: 0px 3px 1px 1px rgba(0, 0, 0,.1);
+    z-index:1;
+}
+
+.nav-card {
+    box-shadow: 0px 3px 2px 2px rgba(0, 0, 0,.3);
+}
+
+
+.navbar {
+    display: inline;
+    float: right;
+    height: 7vh;
+    font-size: 4vh;
+    font-weight: lighter;
+    background-color: rgb(48, 48, 54);
+    padding: 0px;
+}
+
+.yellow-link {
+    color: white;
+    text-decoration:none;
+}
+
+.yellow-link:hover {
+    color: rgba(252, 215, 5,.9);
+    text-decoration: none;
+}
+
+html {
+    font-size: 14px;
+}
+
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.row.tq-page {
+    background-color: rgb(48, 48, 54);
+    width: 100%;
+    height:100%;
+}
+
+.row.qa-block {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60vh;
+    background-color: rgb(48, 48, 54);
+    padding: 0px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.qa-card {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 45vh;
+    margin: 2vh;
+    background-color: whitesmoke;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2vh;
+    padding:2vh;
+
+}
+
+
+.btn.answer-button {
+    width: 100%;
+    margin: .5vh;
+    font-size:3vh;
+}
+.btn.next-question {
+    width: 70vw;
+    margin: 2vh;
+    font-size: 3vh;
+}
+
+
+table {
+    margin: 2vh;
+}
+.answer-list{
+     padding-top:1vh;
+     padding-bottom:1vh;
+}
+
+.card-body {
+    background-color: whitesmoke;
+}
+
+/* answer block display*/
+
+.Correct {
+    color: lightgreen;
+    border-radius: 1vh;
+    font-weight:lighter;  
+    font-size:10vh;
+}
+
+.Incorrect {
+    color: lightcoral;
+    border-radius: 1vh;
+    font-weight: lighter;
+    font-size: 10vh;
+}
+
+/*.answer-block.false {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(0%) translateY(200%);
+    transition: .5s ease-in-out;
+    z-index: 10;
+    justify-content:center;
+    align-content:center;
+}*/
+.answer-block {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+}
+
+/*.answer-card-body.false {
+    background-color: whitesmoke;
+    height: 50%;
+    width: 70%;
+    transform: translateX(0%) translateY(200%);
+    transition: .5s ease-in-out;
+    z-index: 11;
+}*/
+.answer-card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    height: 30%;
+    width: 50%;
+    transition: .5s ease-in-out;
+    border-radius: 2vh;
+    justify-content:space-around;
+    align-items:center;
+    padding: 2%;
+    z-index: 11;
+}
+
+
+
+
+
+
+

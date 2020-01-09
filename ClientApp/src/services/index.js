@@ -1,0 +1,1 @@
+﻿export { TriviaRepository } from "./TriviaRepository";
