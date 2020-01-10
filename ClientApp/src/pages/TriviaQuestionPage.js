@@ -20,6 +20,10 @@ export class TriviaQuestions extends React.Component {
         this.triviaRepository.getOne()
             .then(response => this.setState({ trivia: response.results }));
     };
+
+    setShowScoreBoardTrue() {
+        this.props.setState({ showScoreBoard:true})
+    }
  
     render() {
         return <>    

@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { Header } from "./Header";
-
+import {AnswerTracker} from "./AnswerTracker"
 import { NavMenu } from './NavMenu';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./component.css";
 
 export class Layout extends Component {
-  static displayName = Layout.name;
+    static displayName = Layout.name;
+   
 
   render () {
     return <>
             <Header/>
-            <NavMenu />
-        <div>
+        <NavMenu />
+        
+        <div setState={this.setState} >
                {!this.props.children &&
                 <div className="row">
                     <div className="col-sm-8">

@@ -1,20 +1,26 @@
 ﻿import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { ScoreContext } from '../services/ScoreContext';
+import { AnswerTracker } from './AnswerTracker';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./component.css";
 
+
 export class QuestionAnswerBlock extends React.Component {
+
+    static contextType = ScoreContext;
+
     state = {
         showAnswerBlock: false,
         showNextQuestionButton: false,
         userAnswer:"Incorrect"
-        }
+    }
 
-    componentDidMount() {
-
+    componentDidUnmount() {
+        this.context.hideScore();
     };
 
 
@@ -37,7 +43,10 @@ export class QuestionAnswerBlock extends React.Component {
     checkAnswer(answer) {
         if (answer == this.props.question.correct_answer) {
             this.setState({ userAnswer: "Correct" })
-
+            this.context.addCorrect();
+        }
+        else {
+            this.context.addIncorrect();
         }
         this.setState({ showAnswerBlock:true })
     }
@@ -55,6 +64,7 @@ export class QuestionAnswerBlock extends React.Component {
 
     render() {
         return <>
+            
             {this.state.showAnswerBlock &&
                 <div className="answer-block">
                     <div className="answer-card-body">

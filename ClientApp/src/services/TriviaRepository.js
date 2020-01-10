@@ -28,19 +28,9 @@ export class TriviaRepository {
             });
         }
 
-        getTrivia(triviaFormData) {
-            return new Promise((resolve, reject) => {
-                axios.get(`${this.url}/${triviaFormData}.php`, this.config)
-                    .then(x => resolve(x.data))
-                    .catch(x => {
-                        alert(x);
-                        reject();
-                    });
-            });
-        }
         getTriviaCategories() {
             return new Promise((resolve, reject) => {
-                axios.get(`${this.url}_category.php`, this.config)
+                axios.get(`https://opentdb.com/api_category.php`, this.config)
                     .then(x => resolve(x.data))
                     .catch(x => {
                         alert(x);
@@ -48,4 +38,17 @@ export class TriviaRepository {
                     });
             });
         }
+
+        getTrivia(triviaFormData) {
+            return new Promise((resolve, reject) => {
+                axios.get(`${this.url}.php?amount=${triviaFormData.amount}/&category=${triviaFormData.categoryNumber}.php`, this.config)
+                    .then(x => resolve(x.data))
+                    .catch(x => {
+                        alert(x);
+                        reject();
+                    });
+            });
+    }
+
+
 }
