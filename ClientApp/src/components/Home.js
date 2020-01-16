@@ -21,16 +21,19 @@ export class Home extends Component {
                 </div>
                 <div className="col-sm-4">
                     <div className="jeparody-home-card">
-                        {/* <Link to={'/selectcategories'} className="btn btn-outline detail-button select-button"> Select Categories </Link> */}
-                        <div className="btn home-button"> Select Categories </div>  
+                        <Link to={'/stats'} className="btn home-button">
+                            Stats
+                        </Link>
+
                     </div>
                 </div>
                 <div className="col-sm-4">
                     <div className="jeparody-home-card">
                         {/* <Link to={'/selectcategories'} className="btn btn-outline detail-button select-button"> Select Categories </Link> */}
-                        <div className="btn home-button"> Submit Trivia </div>
+                        <div className="btn home-button"> Select Categories </div>  
                     </div>
                 </div>
+                
             </div>
         </div>
 

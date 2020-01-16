@@ -1,11 +1,15 @@
 ﻿
 html, body {
+    position: fixed;
     min-height: 100%;
     background-color: rgb(48, 48, 54);
 }
 
 body {
-    position: relative;
+    position: fixed;
+    background-color: rgb(48, 48, 54);
+    width: 100%;
+    height: 100%;
     background-color: rgb(48, 48, 54);
 }
 
@@ -13,17 +17,17 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 30vh;
+    height: 15vw;
     align-items: center;
     justify-content: center;
-    padding: 3%;
     background-color: rgb(45, 86, 210);
 }
 
 .jeparody-logo {
     display:flex;
-    width: 80vw;
-    height:20vh;
+    width: 70vw;
+    height:12vw;
+    margin:auto;
  }
 
 .yellow-band {
@@ -139,38 +143,55 @@ html {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 45vh;
+    min-height: 45vh;
     margin: 2vh;
     background-color: whitesmoke;
     justify-content: space-around;
     align-items: center;
     border-radius: 2vh;
-    padding:2vh;
-
+    padding: 2vh;
 }
 
 
 .btn.answer-button {
     width: 100%;
     margin: .5vh;
-    font-size:3vh;
-}
-.btn.next-question {
-    width: 70vw;
-    margin: 2vh;
     font-size: 3vh;
 }
 
+.btn.answer-button:hover {
+    transform: scaleX(1.005) scaleY(1.005);
+}
 
+btn.btn-outline-primary.answer-button:hover {
+    background-color: rgb(45, 86, 210);
+    color: white;
+    transform: scaleX(1.005) scaleY(1.005);
+}
+
+/*.btn.next-question {
+    width: 70vw;
+    margin: 2vh;
+    font-size: 3vh;
+}*/
 table {
     margin: 2vh;
 }
-.answer-list{
-     padding-top:1vh;
-     padding-bottom:1vh;
+.answer-list {
+    position: relative;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 90%;
+    margin: auto;
 }
 
 .card-body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:auto;
+    margin-bottom:0px;
+    width: 90%;
     background-color: whitesmoke;
 }
 
@@ -246,53 +267,202 @@ table {
 
 /*Scoreboard*/
 .score-card {
+    position: fixed;
+    bottom: 15vh;
+    right: 2vw;
     display: flex;
-    flex-direction: row;
-    width: 20vw;
-    height: 20vw;
-    z-index: 10;
+    flex-direction: column;
+    flex-wrap: nowrap; 
     justify-content: center;
     align-items: center;
     background-color: rgb(48, 48, 54);
     color: white;
+    border-radius: 2vh;
+    border-style: solid;
+    border-width: .5vh;
     border-color: whitesmoke;
-    transform: translateX(30vw) translateY(30vh);
-    justify-content: center;
-    align-items: center;
+    z-index: 15;
 }
 
 .correct-square {
-    border-color: lightgreen;
+    height: 45%;
     color: white;
     border-radius: 1vh;
-    border-width: .5vh;
+    border-style: solid;
+    border-width: .25vh;
+    border-color: lightgreen;
+    font-family: sans-serif;
     font-weight: lighter;
-    font-size: .5vw;
+    font-size: 1vw;
+    margin: 2vh 2vh .5vh 2vh;
+    padding: 1vh 2vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
+
 .incorrect-square {
-    border-color: lightcoral;
+    height: 45%;
     color: white;
     border-radius: 1vh;
-    border-width: .5vh;
+    border-style: solid;
+    border-width: .25vh;
+    font-family: sans-serif;
     font-weight: lighter;
-    font-size: .5vw;
-    justify-content:center;
-    align-items:center;
+    border-color: lightcoral;
+    font-size: 1vw;
+    margin: .5vh 2vh 2vh 2vh;
+    padding: 1vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 
 .correct-count-style {
-    font-size: 5vw;
-    font-weight:bolder;
+    font-size: 3vw;
+    font-weight: bolder;
     color: lightgreen;
+    justify-content: center;
 }
-.correct-count-style {
-    font-size: 5vw;
+
+.incorrect-count-style {
+    font-size: 3vw;
     font-weight: bolder;
     color: lightcoral;
+    justify-content: center;
 }
 
 
+/*Stat Page*/
+
+.stat-page {
+    position:absolute;
+    background-color: rgb(48, 48, 54);
+    width:100%;
+    height:100%;
+}
+.stat-block {
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    background-color: rgb(48, 48, 54);
+    color:white;
+}
+
+.table.stat-table {
+    font-family: sans-serif;
+    font-weight: lighter;
+    color:white;
+    margin:2vw;
+    max-width:50vw;
+}
+
+
+.stat-score-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: auto;
+    width:60vw;
+    background-color: rgb(48, 48, 54);
+    font-family:sans-serif;
+    font-size:3vh;
+    border-radius: 2vh;
+    border-style: solid;
+    border-width: .5vh;
+    border-color: whitesmoke;
+    z-index: 15;
+}
+
+.correct-square {
+    height: 45%;
+    color: white;
+    border-radius: 1vh;
+    border-style: solid;
+    border-width: .25vh;
+    border-color: lightgreen;
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 1vw;
+    margin: 2vh 2vh .5vh 2vh;
+    padding: 1vh 2vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.incorrect-square {
+    height: 45%;
+    color: white;
+    border-radius: 1vh;
+    border-style: solid;
+    border-width: .25vh;
+    font-family: sans-serif;
+    font-weight: lighter;
+    border-color: lightcoral;
+    font-size: 1vw;
+    margin: .5vh 2vh 2vh 2vh;
+    padding: 1vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.correct-count-style {
+    font-size: 3vw;
+    font-weight: bolder;
+    color: lightgreen;
+    justify-content: center;
+}
+
+.incorrect-count-style {
+    font-size: 3vw;
+    font-weight: bolder;
+    color: lightcoral;
+    justify-content: center;
+
+}
+
+
+
+
+
+
+
+
+/*Error Page*/
+.black-background {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    margin: 0%;
+    background-color: rgb(48, 48, 54);
+}
+
+.blue-panel {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 50vh;
+    width: 50vw;
+    font-size: 5vw;
+    font-weight: bolder;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    text-justify: auto;
+    padding: 2vh;
+    border-radius: 1vh;
+    box-shadow: 0px 3px 1px 1px rgba(0, 0, 0,.1);
+    background-color: rgba(45, 86, 210,.9);
+}
 

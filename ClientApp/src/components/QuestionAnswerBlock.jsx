@@ -11,20 +11,17 @@ import "./component.css";
 
 export class QuestionAnswerBlock extends React.Component {
 
-    static contextType = ScoreContext;
-
     state = {
+        showQuestionBlock: false,
         showAnswerBlock: false,
         showNextQuestionButton: false,
-        userAnswer:"Incorrect"
+        userAnswer: "",
+        answers:[]
     }
 
-    componentDidUnmount() {
-        this.context.hideScore();
-    };
+    
 
-
-    allAnswers() {
+    getAllAnswers() {
         var allAnswers = [];
 
         if (this.props.question.type == "multiple") {
@@ -34,34 +31,62 @@ export class QuestionAnswerBlock extends React.Component {
             allAnswers.push(this.props.question.correct_answer);
             allAnswers.sort(() => Math.random() - 0.5);
         }
-        else { allAnswers = ["False", "True"]; }
+        else { allAnswers = ["True", "False"]; }
 
         return allAnswers;
+    }
+
+    componentDidMount() {
+
+        this.setState({
+            showNextQuestionButton:false,
+            userAnswer:"",
+            answers:this.getAllAnswers(),
+            showQuestionBlock:true
+        });
+
     }
 
 
     checkAnswer(answer) {
         if (answer == this.props.question.correct_answer) {
             this.setState({ userAnswer: "Correct" })
-            this.context.addCorrect();
         }
         else {
-            this.context.addIncorrect();
+            this.setState({ userAnswer: "Incorrect" })
         }
-        this.setState({ showAnswerBlock:true })
+        this.setState({ showAnswerBlock: true })
     }
 
+
     closeAnswerBlock() { 
+        if (this.state.userAnswer == "Correct") {
+            this.props.handleAnswer(true);
+        }
+        else {
+            this.props.handleAnswer(false);
+        }
+        this.props.getUserScores();
         this.setState({
             showAnswerBlock: false,
-            showNextQuestionButton:true
+            showNextQuestionButton: true,
+        })
+                    
+    }
+
+
+    next() {
+        
+        this.setState({
+            showQuestionBlock: false,
+            showNextQuestionButton: false,
+            userAnswer: ""
         });
-     
+        this.props.getNextQuestion();
+        this.componentDidMount();
     }
 
     
-
-
     render() {
         return <>
             
@@ -82,44 +107,40 @@ export class QuestionAnswerBlock extends React.Component {
             <div className="row qa-block">
                 <div className="qa-block" id='trivia-question-display'>
                     <div className="qa-card">
-                    {
-                        this.props &&
-                        
+                        {
+                            this.state.showQuestionBlock &&
                             <div className="card-body">
-                                <h4> {this.props.question.question}</h4>
-                                
+                                <h4>
+                                    <div dangerouslySetInnerHTML={{ __html: this.props.question.question }}>
+                                    </div>
+                                </h4>
+
                                 <div className="answer-list">
-                                    {this.allAnswers().map(answer =>
+                                    {
+                                        this.getAllAnswers().map(answer =>
                                         <div>
                                             <button value={answer} onClick={(e) => { this.checkAnswer(e.target.value) }} className="btn btn-primary btn-block answer-button">
                                                 {answer}
                                             </button>
                                         </div>
                                     )}
+                                    {
+                                        this.state.showNextQuestionButton &&
+                                        <button onClick={(e) => { this.next() }} className="btn btn-outline-primary btn-block answer-button">
+                                            Next Question
+                                        </button>
+                                    }
                                 </div>
-                            </div>                      
-                    }
-                    
+                            </div>
+                        }
+                        
                     </div>
-                    {
-                        this.state.showNextQuestionButton &&
-                        //<button onClick={(e) => { this.getNextQuestion()}} className="btn btn-primary next-question">
-                        //    Next Question
-                        //</button>
-                        <button onClick={event => window.location.href = '/triviaquestions'} className="btn btn-primary next-question">
-                            Next Question
-                        </button>
-                        //<Link to="/triviaquestions" className="btn btn-primary next-question">Next Question</Link>
-                    }
+                    
                 </div>
             </div>
         </>
     }
-
-
-
-    
-}
+ }
 
 
 export default withRouter(QuestionAnswerBlock);

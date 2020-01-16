@@ -31,20 +31,25 @@ export class NavMenu extends Component {
            
                 <ul className="nav-ul">
                       <li className="navbar" >
-                          <Link to={'/'} className="yellow-link">
-                               Home
-                            </Link>
-                      </li>
+                          <Link to={'/selectcategories'} className="yellow-link">
+                              Select
+                                </Link>
+                      </li>   
                       <li className="navbar" >
                           <Link to={'/triviaquestions'} className="yellow-link">
-                            Play Now
-                            </Link>                
+                              Play Now
+                                </Link>
                       </li>
                       <li className="navbar" >
-                            <Link to={'/selectcategories'} className="yellow-link">
-                                Select
-                            </Link>
-                      </li>                
+                          <Link to={'/stats'} className="yellow-link">
+                              Stats
+                                </Link>
+                      </li>  
+                      <li className="navbar" >
+                          <Link to={'/'} className="yellow-link">
+                              Home
+                                </Link>
+                      </li>        
                   </ul>
 
         </div>
